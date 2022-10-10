@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter - Retro</title><!-- Em inglês pra ficar bonitinho kkk--><!--Very good very nice hehe-->
+        <link rel="stylesheet" href="./global.css">
+        
+    </head>
+
+<body>
+
+    
+        <h1 align="center">CONTADOR DE PALAVRAS</h1>
+
+        <form name="form_main">
+            <fieldset align="center">
+                <legend align="center"> Contador </legend>
+                <label for="text">Texto:</label> <br>
+                <textarea name="text" id="text" cols="30" rows="10" oninput="countText()"></textarea><br>
+                <label for="characters">Caracteres: </label><span id="characters"></span><br>
+                <label for="words">Palavras: </label><span id="words"></span><br>
+                <label for="rows">Linhas: </label><span id="rows"></span><br>
+            </fieldset>
+        </form>
+
+        <br>
+
+        <table>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+
+        </table>
+
+        <script>
+            function countText(){
+                var text = document.form_main.text.value;
+                document.getElementById('characters').innerText = text.length;
+                document.getElementById('words').innerText = text.split(/\s+/).length;
+                document.getElementById('rows').innerText = text.split(/\n/).length;
+                console.log(text);
+            }
+            
+        let words = text.split(/\s/);
+
+        var keys = [];
+        let count = {};
+        for (let i = 0; i < words.length; i++){
+            let palavra = words[i].toLowerCase();
+             if (count[palavra] == undefined){
+                    count[palavra] = 1;
+                    keys.push(palavra);
+
+              }else{
+                    count[palavra]++
+                }
+            }
+            keys.sort(compare);
+
+            function compare(a,b){
+                let countA = count[a];
+                let countB = count[b];
+                return countB - countA;
+            }
+
+            for (i=0; i < keys.length; i++){
+                let key = keys[i];
+                document.writeln(key + " " + count[key]);
+            }
+            
+
+        </script>
+
+
+
+</body>
+
+</html>
